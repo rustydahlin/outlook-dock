@@ -1,0 +1,42 @@
+{
+  "name": "outlook-dock",
+  "productName": "Outlook Dock",
+  "version": "0.1.0",
+  "description": "Outlook web calendar docked to the screen edge as a Windows AppBar",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "local.outlookdock",
+    "productName": "Outlook Dock",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "*.js",
+      "inject.css",
+      "package.json",
+      "!node_modules/koffi/build/koffi/{darwin*,linux*,freebsd*,openbsd*,musl*}/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "requestedExecutionLevel": "asInvoker"
+    }
+  },
+  "dependencies": {
+    "koffi": "^3.3.2"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3"
+  }
+}
